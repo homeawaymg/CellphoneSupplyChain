@@ -82,20 +82,25 @@ contract('SupplyChain', function(accounts) {
     })    
 
     // 2nd Test
-    it("Testing smart contract function processItem() that allows a Manufacturer to process coffee", async() => {
+    it("Testing smart contract function assembleItem() that allows a Manufacturer to process coffee", async() => {
         const supplyChain = await SupplyChain.deployed()
         
         // Declare and Initialize a variable for event
+        let result = await supplyChain.assembleItem(upc);
         
         
         // Watch the emitted event Processed()
+        console.log (result.logs);
+        assert.equal(result.logs[0].event, 'Assembled', 'Assembled event should fire.');
         
 
         // Mark an item as Processed by calling function processtItem()
         
 
         // Retrieve the just now saved item from blockchain by calling function fetchItem()
-        
+        const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc)
+        assert.equal(resultBufferTwo[5], 1, 'Error: Invalid item State')
+
 
         // Verify the result set
         
