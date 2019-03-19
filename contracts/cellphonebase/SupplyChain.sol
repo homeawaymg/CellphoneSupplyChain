@@ -16,7 +16,7 @@ contract SupplyChain {
 
     // Define a public mapping 'itemsHistory' that maps the UPC to an array of TxHash, 
     // that track its journey through the supply chain -- to be sent from DApp.
-    mapping (uint => string[]) itemsHistory;
+    mapping (uint => string[]) public itemsHistory ;
     
     // Define enum 'State' with the following values:
     enum State 
@@ -29,7 +29,7 @@ contract SupplyChain {
         Shipped,        // 5
         Received,     // 6
         Purchased     // 7
-        }
+    }
 
     State constant defaultState = State.Manufactured;
 
@@ -171,40 +171,42 @@ contract SupplyChain {
     }
 
     // Define a function 'assembleItem' that allows a farmer to mark an item 'Processed'
-    function assembleItem(uint _upc)  public  {
-    // Call modifier to check if upc has passed previous supply chain stage
-    
-    // Call modifier to verify caller of this function
-    
-    {
+    function assembleItem(uint _upc)  public onlyOwner manufactured(_upc)  {
+        // Call modifier to check if upc has passed previous supply chain stage
+        // Call modifier to verify caller of this function
         // Update the appropriate fields
         Item storage t = items[_upc];
-        t.State = State.Assembled;
+        t.itemState = State.Assembled;
+        items[_upc] = t;
         // Emit the appropriate event
         emit Assembled(_upc);
 
     }
 
     // Define a function 'packItem' that allows a farmer to mark an item 'Packed'
-    function packItem(uint _upc) public 
+    function packItem(uint _upc) public onlyOwner assembled(_upc)  
     // Call modifier to check if upc has passed previous supply chain stage
-    
     // Call modifier to verify caller of this function
-    
     {
-        // Update the appropriate fields
-        
+        Item storage t = items[_upc];
+        t.itemState = State.Packed;
+        items[_upc] = t;
         // Emit the appropriate event
-        
+        emit Packed(_upc);
     }
 
     // Define a function 'sellItem' that allows a farmer to mark an item 'ForSale'
-    function sellItem(uint _upc, uint _price) public 
+    function sellItem(uint _upc, uint _price) public onlyOwner assembled(_upc)
     // Call modifier to check if upc has passed previous supply chain stage
     
     // Call modifier to verify caller of this function
     
     {
+        Item storage t = items[_upc];
+        t.itemState = State.Packed;
+        items[_upc] = t;
+        // Emit the appropriate event
+        emit Packed(_upc);
         // Update the appropriate fields
         
         // Emit the appropriate event
