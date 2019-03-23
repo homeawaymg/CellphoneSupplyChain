@@ -4,7 +4,7 @@ pragma solidity ^0.4.24;
 import "./Roles.sol";
 
 // Define a contract 'DistributorRole' to manage this role - add, remove, check
-contract DistributorRole {
+contract BrandOwnerRole {
 
   // Define 2 events, one for Adding, and other for Removing
 
@@ -16,33 +16,33 @@ contract DistributorRole {
   }
 
   // Define a modifier that checks to see if msg.sender has the appropriate role
-  modifier onlyDistributor() {
+  modifier onlyBrandOwner() {
 
     _;
   }
 
   // Define a function 'isDistributor' to check this role
-  function isDistributor(address account) public view returns (bool) {
+  function isBrandOwner(address account) public view returns (bool) {
 
   }
 
   // Define a function 'addDistributor' that adds this role
-  function addDistributor(address account) public onlyDistributor {
+  function addBrandOwner(address account) public onlyBrandOwner {
 
   }
 
   // Define a function 'renounceDistributor' to renounce this role
-  function renounceDistributor() public {
+  function renounceBrandOwner() public {
 
   }
 
   // Define an internal function '_addDistributor' to add this role, called by 'addDistributor'
-  function _addDistributor(address account) internal {
+  function _addBrandOwner(address account) internal {
 
   }
 
   // Define an internal function '_removeDistributor' to remove this role, called by 'removeDistributor'
-  function _removeDistributor(address account) internal {
+  function _removeBrandOwner(address account) internal {
 
   }
 }
