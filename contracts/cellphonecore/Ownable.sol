@@ -1,5 +1,7 @@
 pragma solidity ^0.4.24;
 
+import "../cellphonebase/SupplyChain.sol";
+
 /// Provides basic authorization control
 contract Ownable {
     address private origOwner;
@@ -9,7 +11,7 @@ contract Ownable {
 
     /// Assign the contract to an owner
     constructor () internal {
-        origOwner = msg.sender;
+        origOwner =  msg.sender;
         emit TransferOwnership(address(0), origOwner);
     }
 

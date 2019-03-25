@@ -1,10 +1,16 @@
 pragma solidity ^ 0.4 .24;
 // Define a contract 'Supplychain'
-contract SupplyChain {
+
+import "../cellphoneaccesscontrol/BrandOwnerRole.sol";
+import "../cellphoneaccesscontrol/ConsumerRole.sol";
+import "../cellphoneaccesscontrol/ManufacturerRole.sol";
+import "../cellphoneaccesscontrol/RetailerRole.sol";
+contract SupplyChain is BrandOwnerRole, ManufacturerRole, RetailerRole, ConsumerRole {
 
     // Define 'brandOwner'
     address brandOwner;
 
+     
     // Define a variable called 'upc' for Universal Product Code (UPC)
     uint upc;
 
@@ -17,6 +23,8 @@ contract SupplyChain {
     // Define a public mapping 'itemsHistory' that maps the UPC to an array of TxHash, 
     // that track its journey through the supply chain -- to be sent from DApp.
     mapping(uint => string[]) public itemsHistory;
+
+
 
     // Define enum 'State' with the following values:
     enum State {
@@ -143,14 +151,14 @@ contract SupplyChain {
         }
     }
 
-    // Define a function 'manufactureItem' that allows a farmer to mark an item 'manufactureItem'
+    // Define a function 'manufactureItem' that allows a manufacturer to mark an item 'manufactureItem'
     function manufactureItem(uint _upc, 
                             address _originManufacturerID, 
                             string _originManufacturerName, 
                             string _originManufacturerInformation, 
                             string _originManufacturerLatitude,
                             string _originManufacturerLongitude, 
-                            string _productNotes) public {
+                            string _productNotes) public onlyManufacturer {
         // Add the new item as part of Harvest
         Item memory newPhone = Item(sku, 
                                     _upc, 
@@ -175,12 +183,14 @@ contract SupplyChain {
         // TODO itemsHistory[_upc] ;
         // Increment sku
         sku = sku + 1;
+        //transferOwnership(newOwner);
         // Emit the appropriate event
+        
         emit Manufactured(_upc);
     }
 
     // Define a function 'assembleItem' that allows a farmer to mark an item 'Processed'
-    function assembleItem(uint _upc) public  manufactured(_upc) {
+    function assembleItem(uint _upc) public  onlyManufacturer manufactured(_upc) {
         // Call modifier to check if upc has passed previous supply chain stage
         // Call modifier to verify caller of this function TODO
         // Update the appropriate fields
@@ -193,7 +203,7 @@ contract SupplyChain {
     }
 
     // Define a function 'packItem' that allows a farmer to mark an item 'Packed'
-    function packItem(uint _upc) public  assembled(_upc)
+    function packItem(uint _upc) public  onlyManufacturer assembled(_upc)
     // Call modifier to check if upc has passed previous supply chain stage
     // Call modifier to verify caller of this function TODO
     {
@@ -204,8 +214,8 @@ contract SupplyChain {
         emit Packed(_upc);
     }
 
-    // Define a function 'sellItem' that allows a farmer to mark an item 'ForSale'
-    function sellItem(uint _upc, uint _price) public  packed(_upc)
+    // Define a function 'sellItem' that allows a manufacturer to mark an item 'ForSale'
+    function sellItem(uint _upc, uint _price) public  onlyManufacturer packed(_upc)
     // Call modifier to check if upc has passed previous supply chain stage
 
     // Call modifier to verify caller of this function TODO
@@ -253,7 +263,7 @@ contract SupplyChain {
 
     // Define a function 'shipItem' that allows the distributor to mark an item 'Shipped'
     // Use the above modifers to check if the item is sold
-    function shipItem(uint _upc) public 
+    function shipItem(uint _upc) onlyBrandOwner public 
 
     // Call modifier to check if upc has passed previous supply chain stage
     sold(_upc)
@@ -270,7 +280,7 @@ contract SupplyChain {
 
     // Define a function 'receiveItem' that allows the retailer to mark an item 'Received'
     // Use the above modifiers to check if the item is shipped
-    function receiveItem(uint _upc) public
+    function receiveItem(uint _upc) public onlyRetailer
     // Call modifier to check if upc has passed previous supply chain stage
     shipped(_upc)
     // Access Control List enforced by calling Smart Contract / DApp
@@ -293,6 +303,7 @@ contract SupplyChain {
     {
         Item storage t = items[_upc];
         // Update the appropriate fields - ownerID, consumerID, itemState
+        addConsumer(msg.sender);
         t.itemState = State.Purchased;
         t.consumerID = t.ownerID = msg.sender;
 

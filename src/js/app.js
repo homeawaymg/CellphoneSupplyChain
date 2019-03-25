@@ -6,11 +6,11 @@ App = {
     upc: 0,
     metamaskAccountID: "0x0000000000000000000000000000000000000000",
     ownerID: "0x0000000000000000000000000000000000000000",
-    originFarmerID: "0x0000000000000000000000000000000000000000",
-    originFarmName: null,
-    originFarmInformation: null,
-    originFarmLatitude: null,
-    originFarmLongitude: null,
+    originManufacturerID: "0x0000000000000000000000000000000000000000",
+    originFactoryName: null,
+    originFactoryInformation: null,
+    originFactoryLatitude: null,
+    originFactoryLongitude: null,
     productNotes: null,
     productPrice: 0,
     distributorID: "0x0000000000000000000000000000000000000000",
@@ -27,14 +27,14 @@ App = {
         App.sku = $("#sku").val();
         App.upc = $("#upc").val();
         App.ownerID = $("#ownerID").val();
-        App.originFarmerID = $("#originFarmerID").val();
-        App.originFarmName = $("#originFarmName").val();
-        App.originFarmInformation = $("#originFarmInformation").val();
-        App.originFarmLatitude = $("#originFarmLatitude").val();
-        App.originFarmLongitude = $("#originFarmLongitude").val();
+        App.originManufacturerID = $("#originManufacturerID").val();
+        App.originFactoryName = $("#originFactoryName").val();
+        App.originFactoryInformation = $("#originFactoryInformation").val();
+        App.originFactoryLatitude = $("#originFactoryLatitude").val();
+        App.originFactoryLongitude = $("#originFactoryLongitude").val();
         App.productNotes = $("#productNotes").val();
         App.productPrice = $("#productPrice").val();
-        App.distributorID = $("#distributorID").val();
+        App.distributorID = $("#brandOwnerID").val();
         App.retailerID = $("#retailerID").val();
         App.consumerID = $("#consumerID").val();
 
@@ -99,7 +99,7 @@ App = {
 
     initSupplyChain: function () {
         /// Source the truffle compiled smart contracts
-        var jsonSupplyChain='../../build/contracts/SupplyChain.json';
+        var jsonSupplyChain='../../build/contracts/ValueChain.json';
         
         /// JSONfy the smart contracts
         $.getJSON(jsonSupplyChain, function(data) {
@@ -131,10 +131,10 @@ App = {
 
         switch(processId) {
             case 1:
-                return await App.harvestItem(event);
+                return await App.manufactureItem(event);
                 break;
             case 2:
-                return await App.processItem(event);
+                return await App.assembleItem(event);
                 break;
             case 3:
                 return await App.packItem(event);
@@ -163,37 +163,37 @@ App = {
             }
     },
 
-    harvestItem: function(event) {
+    manufactureItem: function(event) {
         event.preventDefault();
         var processId = parseInt($(event.target).data('id'));
 
         App.contracts.SupplyChain.deployed().then(function(instance) {
-            return instance.harvestItem(
+            return instance.manufactureItem(
                 App.upc, 
                 App.metamaskAccountID, 
-                App.originFarmName, 
-                App.originFarmInformation, 
-                App.originFarmLatitude, 
-                App.originFarmLongitude, 
+                App.originFactoryName, 
+                App.originFactoryInformation, 
+                App.originFactoryLatitude, 
+                App.originFactoryLongitude, 
                 App.productNotes
             );
         }).then(function(result) {
             $("#ftc-item").text(result);
-            console.log('harvestItem',result);
+            console.log('manufactureItem',result);
         }).catch(function(err) {
             console.log(err.message);
         });
     },
 
-    processItem: function (event) {
+    assembleItem: function (event) {
         event.preventDefault();
         var processId = parseInt($(event.target).data('id'));
 
         App.contracts.SupplyChain.deployed().then(function(instance) {
-            return instance.processItem(App.upc, {from: App.metamaskAccountID});
+            return instance.assembleItem(App.upc, {from: App.metamaskAccountID});
         }).then(function(result) {
             $("#ftc-item").text(result);
-            console.log('processItem',result);
+            console.log('assembleItem',result);
         }).catch(function(err) {
             console.log(err.message);
         });
