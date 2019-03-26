@@ -2,7 +2,7 @@
 
 ## Project - UML
 
-Check Architecture folder for the UML Documentation in GitHub
+Check [Architecture folder](https://github.com/homeawaymg/CellphoneSupplyChain/tree/master/Architecture) for the UML Documentation in GitHub
 
 
 ## Libraries used in this project
