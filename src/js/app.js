@@ -122,6 +122,7 @@ App = {
     },
 
     handleButtonClick: async function(event) {
+        App.readForm();
         event.preventDefault();
 
         App.getMetaskAccountID();

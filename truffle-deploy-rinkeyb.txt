@@ -229,3 +229,247 @@ Summary
 =======
 > Total deployments:   7
 > Final cost:          0.08918067 ETH
+
+
+
+Transaction History
+Manufactured - 0x3e9b237df033cc858191d3c559dc327718ca442ac09ffafed47dfb13845873e7
+Assembled - 0x5a917eb144248b3baaccfb9ecee045ce86987669d38076ff0b5c38c92da18d44
+Packed - 0x3ea2b7487b8536a07387d7aac0180242a4687e95ae9939e8bc101819de68586f
+ForSale - 0x628c23a5388e3803fe8eff3f6bfa18f38c0063add7b830fb2774e271a4e113ff
+Sold - 0x141a3a5ad4471397b6b456eecdb7acd6f64ab9d79d01e0687ba8c963f9a20589
+Shipped - 0x6aa02208a54238bc14df4b4a93f17685e3d3ee2ae41f2c8f0fa7db5db6ff4cf4
+Received - 0x6178608b84ab7c157c15345247baae2091816e9fb2b87953f9ffb7bc33a0d6b2
+
+
+Manas Udacity Metamask Acct
+0xa8Dd...74F0
+
+35.6142
+ETH
+DEPOSIT
+SEND
+Queue (1)
+Contract Interaction
+#30 - 3/25/2019 at 19:25
+PENDING
+-0
+ETH
+History
+Contract Interaction
+#29 - 3/25/2019 at 19:24
+CONFIRMED
+-0
+ETH
+Details
+
+
+From: 0xa8Dd7B8f24311bd14fcB9DC2fd7b5cB51b7e74F0
+
+To: 0xF4361fA87e8fdd222226005D53df17817Ee4a0CD
+Transaction
+Amount
+0
+ETH
+Gas Limit (Units)
+45594
+Gas Used (Units)
+30396
+Gas Price (GWEI)
+1
+Total
+0.00003
+ETH
+Activity Log
+
+Transaction created with a value of 0 ETH at 19:24 on 3/25/2019.
+
+Transaction submitted with gas fee of 0 WEI at 19:24 on 3/25/2019.
+
+Transaction confirmed at 19:25 on 3/25/2019.
+Contract Interaction
+#28 - 3/25/2019 at 19:24
+CONFIRMED
+-0
+ETH
+Details
+
+
+From: 0xa8Dd7B8f24311bd14fcB9DC2fd7b5cB51b7e74F0
+
+To: 0xF4361fA87e8fdd222226005D53df17817Ee4a0CD
+Transaction
+Amount
+0
+ETH
+Gas Limit (Units)
+44415
+Gas Used (Units)
+29610
+Gas Price (GWEI)
+1
+Total
+0.00003
+ETH
+Activity Log
+
+Transaction created with a value of 0 ETH at 19:24 on 3/25/2019.
+
+Transaction submitted with gas fee of 0 WEI at 19:24 on 3/25/2019.
+
+Transaction confirmed at 19:24 on 3/25/2019.
+Contract Interaction
+#27 - 3/25/2019 at 19:23
+CONFIRMED
+-3
+ETH
+Details
+
+
+From: 0xa8Dd7B8f24311bd14fcB9DC2fd7b5cB51b7e74F0
+
+To: 0xF4361fA87e8fdd222226005D53df17817Ee4a0CD
+Transaction
+Amount
+3
+ETH
+Gas Limit (Units)
+72526
+Gas Used (Units)
+46110
+Gas Price (GWEI)
+1
+Total
+3.000046
+ETH
+Activity Log
+
+Transaction created with a value of 3 ETH at 19:23 on 3/25/2019.
+
+Transaction submitted with gas fee of 0 WEI at 19:23 on 3/25/2019.
+
+Transaction confirmed at 19:23 on 3/25/2019.
+Contract Interaction
+#26 - 3/25/2019 at 19:22
+CONFIRMED
+-0
+ETH
+Details
+
+
+From: 0xa8Dd7B8f24311bd14fcB9DC2fd7b5cB51b7e74F0
+
+To: 0xF4361fA87e8fdd222226005D53df17817Ee4a0CD
+Transaction
+Amount
+0
+ETH
+Gas Limit (Units)
+125178
+Gas Used (Units)
+83452
+Gas Price (GWEI)
+1
+Total
+0.000083
+ETH
+Activity Log
+
+Transaction created with a value of 0 ETH at 19:22 on 3/25/2019.
+
+Transaction submitted with gas fee of 0 WEI at 19:22 on 3/25/2019.
+
+Transaction confirmed at 19:22 on 3/25/2019.
+Contract Interaction
+#25 - 3/25/2019 at 19:21
+CONFIRMED
+-0
+ETH
+Details
+
+
+From: 0xa8Dd7B8f24311bd14fcB9DC2fd7b5cB51b7e74F0
+
+To: 0xF4361fA87e8fdd222226005D53df17817Ee4a0CD
+Transaction
+Amount
+0
+ETH
+Gas Limit (Units)
+65167
+Gas Used (Units)
+43445
+Gas Price (GWEI)
+1
+Total
+0.000043
+ETH
+Activity Log
+
+Transaction created with a value of 0 ETH at 19:21 on 3/25/2019.
+
+Transaction submitted with gas fee of 0 WEI at 19:21 on 3/25/2019.
+
+Transaction confirmed at 19:22 on 3/25/2019.
+Contract Interaction
+#24 - 3/25/2019 at 19:20
+CONFIRMED
+-0
+ETH
+Details
+
+
+From: 0xa8Dd7B8f24311bd14fcB9DC2fd7b5cB51b7e74F0
+
+To: 0xF4361fA87e8fdd222226005D53df17817Ee4a0CD
+Transaction
+Amount
+0
+ETH
+Gas Limit (Units)
+64441
+Gas Used (Units)
+42961
+Gas Price (GWEI)
+1
+Total
+0.000043
+ETH
+Activity Log
+
+Transaction created with a value of 0 ETH at 19:20 on 3/25/2019.
+
+Transaction submitted with gas fee of 0 WEI at 19:20 on 3/25/2019.
+
+Transaction confirmed at 19:21 on 3/25/2019.
+Contract Interaction
+#23 - 3/25/2019 at 19:16
+CONFIRMED
+-0
+ETH
+Details
+
+
+From: 0xa8Dd7B8f24311bd14fcB9DC2fd7b5cB51b7e74F0
+
+To: 0xF4361fA87e8fdd222226005D53df17817Ee4a0CD
+Transaction
+Amount
+0
+ETH
+Gas Limit (Units)
+458907
+Gas Used (Units)
+305938
+Gas Price (GWEI)
+1
+Total
+0.000306
+ETH
+Activity Log
+
+Transaction created with a value of 0 ETH at 19:16 on 3/25/2019.
+
+Transaction submitted with gas fee of 0 WEI at 19:17 on 3/25/2019.
+
+Transaction confirmed at 19:17 on 3/25/2019.

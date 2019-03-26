@@ -24,16 +24,18 @@ contract('ValueChain', function (accounts) {
 
     ///Available Accounts
     ///==================
-    ///(0) 0x27d8d15cbc94527cadf5ec14b69519ae23288b95
-    ///(1) 0x018c2dabef4904ecbd7118350a0c54dbeae3549a
-    ///(2) 0xce5144391b4ab80668965f2cc4f2cc102380ef0a
-    ///(3) 0x460c31107dd048e34971e57da2f99f659add4f02
-    ///(4) 0xd37b7b8c62be2fdde8daa9816483aebdbd356088
-    ///(5) 0x27f184bdc0e7a931b507ddd689d76dba10514bcb
-    ///(6) 0xfe0df793060c49edca5ac9c104dd8e3375349978
-    ///(7) 0xbd58a85c96cc6727859d853086fe8560bc137632
-    ///(8) 0xe07b5ee5f738b2f87f88b99aac9c64ff1e0c7917
-    ///(9) 0xbd3ff2e3aded055244d66544c9c059fa0851da44
+    /* Accounts:
+    (0) 0xf254bd2bdb31b6a982ab3451424ec0b0168ff036
+    (1) 0xe62f5d49a903925d631a06bf09df98298d59f77d
+    (2) 0x11c3928061092dbb72876059154e9edc702232a2
+    (3) 0x2fe74337b9a0a6b66def5a6679e56704c3ef2fa9
+    (4) 0x83473166a7e9a58199597181a4d17349a60791ec
+    (5) 0xe2ca48c537b3d4203e9d0fea962f65a88fb3b77b
+    (6) 0xc09d1ac6658e265f76e7c56eb59738ef2120cdc9
+    (7) 0xc535d758f2af466a81c8a87891bfcd50398c08d4
+    (8) 0x7ab7ba331e845f02d31dc311b1b446d748eb60f2
+    (9) 0xc6ba1bd6d1d5af68821d2f861a75a3ab482b6f10
+    */
 
     console.log("ganache-cli accounts used here...")
     console.log("Brand Owner: accounts[0] ", brandOwnerID)
@@ -70,7 +72,7 @@ contract('ValueChain', function (accounts) {
         //var event = valueChain.Manufactured()
         //await event.watch((err, res) => {
         //    eventEmitted = true
-        //})
+        //}) UDACITY Account 0
 
         // Mark an item as Manufactured by calling function manufactureItem()
         let result = await valueChain.manufactureItem(upc, originManufacturerID, originManufacturerName, 
